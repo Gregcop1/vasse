@@ -5,3 +5,14 @@
 
 // ## Navigation
 .nav { @include nav; }
+
+// ## Main menu
+.mainMenu { text-align: center;
+  ul, li { display: inline; }
+  a { @include inline-block; padding: 10px; vertical-align: middle; }
+  .menu-item-25 a { width: 200px; height: 60px; background: url(../img/logo.gif) 50% 50% no-repeat; 
+    text-indent: -9999px; }
+}
+
+// ## Wordpress bar
+#wpadminbar { display: none; }
