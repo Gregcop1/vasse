@@ -11,6 +11,10 @@
     wp_enqueue_script( 'skin-base', get_template_directory_uri() . '/js/base.js', array(), '1.0.0', true );
     wp_enqueue_script( 'skin-main', get_template_directory_uri() . '/js/main.js', array('skin-base'), '1.0.0', true );
 
+    if(is_home()) {
+      wp_enqueue_script( 'sliceManager', get_template_directory_uri() . '/js/components/sliceManager/slice-manager.js', array('jquery'), '1.0.0', true );
+    }
+
   }
 
   

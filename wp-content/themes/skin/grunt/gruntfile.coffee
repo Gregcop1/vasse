@@ -35,6 +35,8 @@ module.exports = (grunt) ->
       jsDest          : '../js'
       jsComponentSrc  : '../js/components/src'
       jsComponentDest : '../js/components/'
+      sliceManagerSrc : '../js/components/sliceManager/src'
+      sliceManagerDest : '../js/components/sliceManager'
       imgSrc          : '../img'
       cssSrc          : '../css/src'
       cssDest         : '../css'
