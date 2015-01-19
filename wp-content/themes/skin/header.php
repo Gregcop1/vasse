@@ -12,14 +12,18 @@
 <html <?php language_attributes(); ?> class="no-js">
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content=" width=device-width, initial-scale=1">
+	
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-	<!--[if lt IE 9]>
-	<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/html5.js"></script>
-	<![endif]-->
-	<script>(function(){document.documentElement.className='js'})();</script>
+	
+	<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/components/modernizr.js"></script>
+
 	<?php wp_head(); ?>
+	<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_directory'); ?>/css/main.css">
+	<!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_directory'); ?>/css/ie8.css" media="screen" /><![endif]-->
 </head>
 
 <body <?php body_class(); ?>>

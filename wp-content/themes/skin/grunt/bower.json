@@ -29,5 +29,6 @@
     "lunr.js": "~0.5.7"
   },
   "devDependencies": {
+    "modernizr": "~2.8.3"
   }
 }
