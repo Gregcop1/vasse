@@ -1,0 +1,22 @@
+{
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-contrib-coffee": "*",
+    "grunt-contrib-sass": "*",
+    "grunt-autoprefixer": "*",
+    "grunt-notify": "*",
+    "grunt-contrib-watch": "*",
+    "load-grunt-tasks": "*",
+    "grunt-contrib-cssmin": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-newer": "*",
+    "grunt-concurrent": "*",
+    "glob": "*",
+    "grunt-browser-sync": "~1.5.3",
+    "grunt-groc": "git://github.com/Plou/grunt-groc.git",
+    "grunt-coffeeify": "~0.1.3",
+    "time-grunt": "~1.0.0",
+    "jquery-mousewheel": "~3.1.12",
+    "jquery-ui-touch-punch": "~0.2.3"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "dummy",
+  "description": "A light Sass & coffee base front-end",
+  "version": "2.0.0-beta.3",
+  "author": {
+    "name": "Inouit",
+    "url": "www.inouit.fr"
+  },
+  "contributors": [
+    "Plou <cl.plou@gmail.com> (http://plou.github.io/)",
+    "Gregcop1 <gregcop1@gmail.com> (https://github.com/Gregcop1)",
+    "Toofff <prouyann@gmail.com> (http://yanoucrea.fr)",
+    "Shatimes <contact@shatimes.fr> (http://www.shatimes.fr)",
+    "JViste <jviste@inouit.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Inouit/dummy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Inouit/dummy/issues"
+  },
+  "dependencies": {
+    "modernizr": "latest",
+    "jquery": "<2.0.0",
+    "jquery.scrollTo": "latest",
+    "jscrollpane": "latest",
+    "underscore": "~1.7.0",
+    "lunr.js": "~0.5.7"
+  },
+  "devDependencies": {
+    "modernizr": "~2.8.3"
+  }
+}
