@@ -13,7 +13,7 @@
 
 get_header(); ?>
 
-<main id="main" role="main" class="main page">
+<main id="main" role="main" class="main page content-page-<?php echo get_the_ID(); ?>">
   <div class="columns columns-30-60">
     <div class="column column-30">
       <div class="columnContent"><img src="<?php bloginfo('template_directory'); ?>/img/vase-sample.png" width="300" height="352" alt=""/></div>

@@ -7,12 +7,28 @@
 .nav { @include nav; }
 
 // ## Main menu
-.mainMenu { text-align: center;
-  ul, li { display: inline; }
+.mainMenu { position: relative; text-align: center; z-index: 2;
+  ul, li { display: inline; margin: 0; padding: 0; }
   a { @include inline-block; padding: 10px; vertical-align: middle; }
   .menu-item-25 a { width: 200px; height: 60px; background: url(../img/logo.gif) 50% 50% no-repeat; 
     text-indent: -9999px; }
 }
+
+// ## slice 
+.js .slices { position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden;
+  .slice { position: absolute; left: 0; top: 0; right: 0; bottom: 0; transition: transform 500ms ease-in, transform3d 500ms ease-in; z-index: 1;
+    @include translateX(100%);
+
+    &.current { @include translateX(0%); }
+    &.prev { @include translateX(-100%); }
+  }
+}
+
+// ## content
+.content-page-6 { background: url(../img/bg-6.jpg) 50% no-repeat; background-size: cover; }
+.content-page-8 { background: url(../img/bg-8.jpg) 50% no-repeat; background-size: cover; }
+.content-page-10 { background: url(../img/bg-10.jpg) 50% no-repeat; background-size: cover; }
+.content-page-30 { background: url(../img/bg-30.jpg) 50% no-repeat; background-size: cover; }
 
 // ## Wordpress bar
 #wpadminbar { display: none; }
