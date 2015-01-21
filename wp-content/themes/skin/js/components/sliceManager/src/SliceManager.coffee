@@ -1,6 +1,6 @@
 Slice = require './Slice.coffee'
-Hammer = require 'hammerjs'
-require 'jquery-hammerjs'
+# Hammer = require 'hammerjs'
+# require 'jquery-hammerjs'
 # _ = require 'underscore'
 # console.log Hammer
 class SliceManager
@@ -42,13 +42,11 @@ class SliceManager
     return @
 
   gotoNextSlice: =>
-    console.log 'goto next'
     currentIndex = $(@slicesSelector + ' .current').index()
     @gotoSlice(currentIndex+1)
     return @
 
   gotoPreviousSlice: =>
-    console.log 'goto prev'
     currentIndex = $(@slicesSelector + ' .current').index()
     @gotoSlice(currentIndex-1)
     return @
@@ -65,32 +63,29 @@ class SliceManager
     @gotoSlice( $(@slicesSelector + ' .' + $menuItem.attr('id')).index() )
     return false
 
+  keyPressed: (e)=>
+    switch e?.which
+      when 37, 38 then @gotoPreviousSlice()
+      when 39, 40 then @gotoNextSlice()
+
+    console.log e.which
+    return @
+
   binds: ->
     next = @gotoNextSlice
-    prev = @gotoPrevSlice
+    prev = @gotoPreviousSlice
 
     # arrows
     $(@slicesArrowSelector+' .right').on('click', next)
     $(@slicesArrowSelector+' .left').on('click', prev)
     
     # touch gesture
-    $('body').hammer().on('swipeleft', ->
-      console.log 'swype left'
-    )
-    # hammer = new Hammer.Manager($('body').get(0))
-    # swipe = new Hammer.Pan()
-    # hammer.add(swipe)
-    # console.log hammer
-    # hammer.on('panleft', =>
-    #   console.log 'next'
-    #   # _.debounce((()->
-    #   #   console.log 'coucou next'
-    #   # ), 1000, true)
-    # )
-    # hammer.on('spanright', =>
-    #   console.log 'previous'
-    #   # _.debounce(prev, 1000, true)
-    # )
+    $('body').hammer().on('swipeleft panleft pandown', _.debounce(next, 300))
+    $('body').hammer().on('panright panup', _.debounce(prev, 300))
+
+    # key
+    $('body').on('keydown', _.debounce(@keyPressed, 300))
+
     return @
 
 $(document).on('ready', ->
