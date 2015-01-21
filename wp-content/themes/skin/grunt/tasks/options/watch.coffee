@@ -23,3 +23,11 @@ module.exports =
   coffeeComponents:
     files:'<%= in8.jsComponentSrc %>/*.coffee'
     tasks: 'newer:coffee:component'
+
+  sliceManager:
+    files:'<%= in8.sliceManagerSrc %>/*.coffee'
+    tasks: 'coffeeify:sliceManager'
+
+  sliceManagerUglify:
+    files:'<%= in8.sliceManagerDest %>/slice-manager.js'
+    tasks: 'uglify:sliceManager'
