@@ -13,6 +13,8 @@
 
     if(is_home()) {
       wp_enqueue_script( 'sliceManager', get_template_directory_uri() . '/js/components/sliceManager/slice-manager.js', array('jquery'), '1.0.0', true );
+      wp_enqueue_script( 'hammer', get_template_directory_uri() . '/js/components/hammer.min.js', array(), '', true );
+      wp_enqueue_script( 'jquery-hammer', get_template_directory_uri() . '/js/components/jquery.hammer.js', array('hammer'), '', true );
     }
 
   }

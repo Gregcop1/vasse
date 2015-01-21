@@ -1,30 +1,43 @@
 module.exports = class Slice
   contentConainer: '#main'
 
-  constructor: (@$menuItem, @$sliceContainer)->
+  constructor: (@$menuItem, @$sliceContainer, @append)->
     @build()
     return @
 
   build: ->
-    @$slice = $('<div/>').addClass('slice')
-      .appendTo(@$sliceContainer)
-
-    $.get(@$menuItem.attr('href'))
+    if @append
+      @$slice = $('<div/>').addClass('slice')
+        .appendTo(@$sliceContainer)
+      
+      $.get(@$menuItem.attr('href'))
       .done((data)=>
         $content = $(data).find(@contentConainer)
-        
-
-        @$slice.addClass($content.attr('class'))
-          .addClass(@$menuItem.closest('li').attr('id'))
-          .removeClass('page')
-          .removeClass('main')
-
-        $content.attr('id', '')
-          .attr('role', '')
-          .attr('class', (i, c)->
-            return c.replace(/(^|\s)content-page-\S+/g, ''))
-        @$slice.append($content)
+        @buildSlice($content)
       )
+    else
+      @$slice = $('#content-page-0')
+        .prependTo(@$sliceContainer)
+      @buildSlice(@$slice.find(@contentConainer))
+
+    return @
+
+
+  buildSlice: ($content)->
+    @$slice.addClass($content.attr('class'))
+      .addClass(@$menuItem.closest('li').attr('id'))
+      .removeClass('page')
+      .removeClass('main')
+
+    $content.attr('id', '')
+      .attr('role', '')
+      .attr('class', (i, c)->
+        return c.replace(/(^|\s)content-page-\S+/g, ''))
+    @$slice.append($content)
+
+    $content.css('height', $content.height())
+      .addClass('verticalAlignMiddle')
+    return @
 
   gotoPrev: ->
     @$slice.addClass('prev')
